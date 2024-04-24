@@ -23,8 +23,7 @@ class ProductController extends Controller
     {
         $product = Product::with(['product_category'])->where('slug', $slug)->first();
 
-        return view('customers.product-detail', compact('product'));
-        
+        return view('customers.product-detail', compact('product'));  
     }
 
     public function addToCart(Request $request)
