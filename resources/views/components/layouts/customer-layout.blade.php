@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('design-system/assets/libs/icofont/icofont.min.css') }}">
     <link href="{{ asset('design-system/assets/libs/flatpickr/flatpickr.min.css') }}" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('design-system/assets/css/tailwind.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     @vite(['resources/js/app.js'])
 
 </head>
@@ -161,16 +162,7 @@
 
                             @if (Auth::user() != null)
                                 <div class="dropdown relative">
-                                    <button type="button"
-                                        class="dropdown-toggle flex rounded-full md:me-0 h-10 w-10 items-center justify-center  border-[.5px] dark:border-slate-700/40 bg-[#f4f7ff] text-dark"
-                                        id="Notifications" aria-expanded="false" data-fc-autoclose="both"
-                                        data-fc-type="dropdown">
-                                        <span data-lucide="shopping-cart" class=" w-5 h-5"></span>
-                                        <span
-                                            class="absolute -top-1 -right-1 h-4 w-4 leading-4 rounded-full bg-brand text-[10px] font-semibold text-white">
-                                            2
-                                        </span>
-                                    </button>
+                                    <x-customers.cart></x-customers.cart>
                                 </div>
                                 <div class="me-2  dropdown relative">
                                     <button type="button"
@@ -416,6 +408,8 @@
 
     <!-- JAVASCRIPTS -->
     <!-- <div class="menu-overlay"></div> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
     <script src="{{ asset('design-system/assets/libs/lucide/umd/lucide.min.js') }}"></script>
     <script src="{{ asset('design-system/assets/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('design-system/assets/libs/flatpickr/flatpickr.min.js') }}"></script>
@@ -436,6 +430,14 @@
                 prevEl: ".swiper-button-prev",
             },
         });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script>
+        let notyf;
+
+        $(document).ready(function() {
+            notyf = new Notyf()
+        })
     </script>
     <!-- JAVASCRIPTS -->
 </body>
