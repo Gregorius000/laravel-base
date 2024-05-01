@@ -62,7 +62,8 @@
                                                                 class="form-input border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent  rounded-md mt-1 border-gray-200 px-3 py-1 text-sm focus:outline-none focus:ring-0 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary-500  dark:hover:border-slate-700"
                                                                 style="width:100px;" type="number" min="0"
                                                                 value="{{ $item->total_qty }}"
-                                                                onchange="changeQty(this)" id="example-number-input">
+                                                                onchange="changeQty(this)" id="example-number-input"
+                                                                data-id="{{ $item->id }}">
                                                         </td>
                                                         <td
                                                             class="p-3 text-sm font-semibold text-slate-700 whitespace-nowrap dark:text-gray-400">
@@ -107,16 +108,16 @@
                                         <table class="min-w-full">
                                             <tbody>
                                                 <!-- 1 -->
-                                                <tr class="border-b border-dashed border-slate-500/60">
+                                                {{-- <tr class="border-b border-dashed border-slate-500/60">
                                                     <td class="p-3 text-sm text-gray-300 whitespace-nowrap font-medium">
                                                         Subtotal
                                                     </td>
                                                     <td class="p-3 text-sm font-medium text-gray-400 whitespace-nowrap">
                                                         $15,500.00
                                                     </td>
-                                                </tr>
+                                                </tr> --}}
                                                 <!-- 2 -->
-                                                <tr class="border-b border-dashed border-slate-500/60">
+                                                {{-- <tr class="border-b border-dashed border-slate-500/60">
                                                     <td class="p-3 text-sm text-gray-300 whitespace-nowrap font-medium">
                                                         Shipping
                                                     </td>
@@ -140,25 +141,27 @@
                                                         <a href="#" class="text-slate-200 font-semibold">Change
                                                             Address</a>
                                                     </td>
-                                                </tr>
+                                                </tr> --}}
                                                 <!-- 3 -->
-                                                <tr class="">
+                                                {{-- <tr class="">
                                                     <td class="p-3 text-sm text-gray-300 whitespace-nowrap font-medium">
                                                         Promo Code
                                                     </td>
                                                     <td class="p-3 text-sm font-medium text-gray-400 whitespace-nowrap">
                                                         -$10.00
                                                     </td>
-                                                </tr>
+                                                </tr> --}}
                                                 <!-- 4 -->
                                                 <tr class="border-t-2 border-solid border-slate-500/60">
                                                     <td
                                                         class="p-3 text-base text-gray-200 whitespace-nowrap font-medium">
                                                         Total
                                                     </td>
-                                                    <td
+                                                    <td id="total-cart"
                                                         class="p-3 text-base font-medium text-gray-100 whitespace-nowrap">
-                                                        $491.00
+                                                        <div
+                                                            class="border-t-transparent border-solid animate-spin  rounded-full border-primary-500 border-2 h-4 w-4 inline-block">
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -186,7 +189,12 @@
 </x-customer-layout>
 
 <script>
+    $(document).ready(function() {
+        getTotalCart()
+    })
+
     function changeQty(e) {
+        let id = $(e).data('id');
         let qty = $(e).val();
         let price = $(e).parent().siblings().eq(1).data('price');
 
@@ -194,5 +202,53 @@
 
         $(e).parent().siblings().eq(2).html(
             `${Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR" }).format(total)}`)
+
+        let form = new FormData()
+        form.append('id', id)
+        form.append('qty', qty)
+
+        $('#total-cart').html(
+            `<div class="border-t-transparent border-solid animate-spin  rounded-full border-primary-500 border-2 h-4 w-4 inline-block"></div>`
+        )
+
+        $.ajax({
+            data: form,
+            url: `{{ route('customer.cart.change-cart') }}`,
+            type: 'POST',
+            contentType: false,
+            cache: false,
+            processData: false,
+            headers: {
+                'X-CSRF-TOKEN': `{{ csrf_token() }}`
+            },
+            success: function(data) {
+                notyf.success(data.message)
+                getTotalCart()
+            },
+            error: function(data) {
+                notyf.error(data.responseJSON.message)
+            }
+        })
+    }
+
+    function getTotalCart() {
+        $.ajax({
+            url: `{{ route('customer.cart.total-cart') }}`,
+            type: 'GET',
+            contentType: false,
+            cache: false,
+            processData: false,
+            headers: {
+                'X-CSRF-TOKEN': `{{ csrf_token() }}`
+            },
+            success: function(data) {
+                $('#total-cart').html(
+                    `${Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR" }).format(data.total)}`
+                )
+            },
+            error: function(data) {
+                notyf.error(data.responseJSON.message)
+            }
+        })
     }
 </script>
