@@ -438,6 +438,17 @@
         $(document).ready(function() {
             notyf = new Notyf()
         })
+
+        function number_format(number) {
+            return Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR"
+            }).format(number)
+        }
+
+        function loader() {
+            return `<div class="border-t-transparent border-solid animate-spin  rounded-full border-primary-500 border-2 h-4 w-4 inline-block"></div>`;
+        }
     </script>
     <!-- JAVASCRIPTS -->
 </body>

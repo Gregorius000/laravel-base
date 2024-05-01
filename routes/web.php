@@ -39,6 +39,13 @@ Route::group(['as' => 'customer.'], function () {
     });
 
     Route::middleware('auth')->group(function () {
-        Route::get('/cart', [CartController::class, 'index'])->name('cart');
+
+        Route::group(['prefix' => '/cart', 'as' => 'cart.'], function () {
+            Route::get('/', [CartController::class, 'index'])->name('index');
+            Route::get('/total-cart', [CartController::class, 'getTotalCart'])->name('total-cart');
+            Route::post('/change-cart', [CartController::class, 'changeCart'])->name('change-cart');
+            Route::get('/get-cart', [CartController::class, 'getCart'])->name('get-cart');
+            Route::delete('/delete-cart', [CartController::class, 'deleteCart'])->name('delete-cart');
+        });
     });
 });
