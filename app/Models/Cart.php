@@ -13,10 +13,18 @@ class Cart extends Model
 
     protected $guarded = ['created_at', 'updated_at'];
 
-    public function scopeGetCartByUser(Builder $query, $userId): Builder
+    public function scopeGetCartByUser(Builder $query): void
     {
-        return $query->selectRaw("carts.id as id, qty as total_qty, name, description, price, image")
+        $query->selectRaw("carts.id as id, qty as total_qty, name, description, price, image, product_id, user_id")
             ->leftJoin('products', 'products.id', '=', 'carts.product_id')
-            ->where('user_id', $userId);
+            ->where('user_id', Auth::id());
+    }
+
+    public function scopeGetTotalCheckoutByUser(Builder $query): void
+    {
+        $query->selectRaw("SUM(qty * price) as total_checkout")
+            ->leftJoin('products', 'products.id', '=', 'carts.product_id')
+            ->where('user_id', Auth::id())
+            ->groupBy('user_id');
     }
 }
