@@ -113,4 +113,40 @@ class CheckoutController extends Controller
             return response()->json(json_decode($response), 200);
         }
     }
+
+    public function getCost(Request $request)
+    {
+        $origin = "255"; // lokasi kita sekarang
+        $destination = $request->destination;
+        $weight = $request->weight;
+        $courier = $request->courier;
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.rajaongkir.com/starter/cost",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "origin=$origin&destination=$destination&weight=$weight&courier=$courier",
+            CURLOPT_HTTPHEADER => array(
+                "content-type: application/x-www-form-urlencoded",
+                "key: " . env('API_KEY_RAJAONGKIR')
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            return response()->json(['message' => $err], 500);
+        } else {
+            return response()->json(json_decode($response), 200);
+        }
+    }
 }
