@@ -156,29 +156,25 @@
                                 <div class="grid grid-cols-3 gap-4">
                                     <div class="col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1">
                                         <div class="mb-2">
-                                            <label for="City"
-                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">City<small
+                                            <label for="State"
+                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">State<small
                                                     class="text-red-600 text-sm">*</small></label>
-                                            <select id="City"
+                                            <select id="state"
                                                 class="w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
-                                                name="city">
-                                                <option class="dark:text-slate-700">-- select --</option>
-                                                <option class="dark:text-slate-700">Surat</option>
-                                                <option class="dark:text-slate-700">New York</option>
+                                                name="state">
+                                                <option selected disabled>Select State</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1">
                                         <div class="mb-2">
-                                            <label for="State"
-                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">State<small
+                                            <label for="City"
+                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">City<small
                                                     class="text-red-600 text-sm">*</small></label>
-                                            <select id="State"
+                                            <select id="city"
                                                 class="w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
-                                                name="state">
-                                                <option class="dark:text-slate-700">-- select --</option>
-                                                <option class="dark:text-slate-700">Gujarat</option>
-                                                <option class="dark:text-slate-700">California</option>
+                                                name="city" disabled>
+                                                <option selected disabled>Select City</option>
                                             </select>
                                         </div>
                                     </div>
@@ -190,10 +186,33 @@
                                             <select id="Country"
                                                 class="w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
                                                 name="country">
-                                                <option class="dark:text-slate-700">-- select --</option>
-                                                <option class="dark:text-slate-700">India</option>
-                                                <option class="dark:text-slate-700">USA</option>
+                                                <option class="dark:text-slate-700">Indonesia</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1">
+                                        <div class="mb-2">
+                                            <label for="Courier"
+                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">Courier<small
+                                                    class="text-red-600 text-sm">*</small></label>
+                                            <select id="courier"
+                                                class="w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
+                                                name="courier">
+                                                <option class="dark:text-slate-700" value="jne">JNE</option>
+                                                <option class="dark:text-slate-700" value="pos">POS</option>
+                                                <option class="dark:text-slate-700" value="tiki">TIKI</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1">
+                                            <div class="mb-2">
+                                                <label for="Service"
+                                                    class="font-medium text-sm text-slate-600 dark:text-slate-400">Service<small
+                                                        class="text-red-600 text-sm">*</small></label>
+                                                <select id="service"
+                                                    class="w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
+                                                    name="service">
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -253,6 +272,7 @@
 <script>
     $(document).ready(function() {
         getCartData()
+        getState()
     })
 
     function getTotalCart() {
@@ -351,4 +371,82 @@
             }
         })
     }
+
+    function getState() {
+        $.ajax({
+            url: `{{ route('customer.checkout.get-province') }}`,
+            type: 'GET',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(res) {
+                res.rajaongkir.results.forEach((item) => {
+                    $('#state').append(
+                        `<option value="${item.province_id}">${item.province}</option>`)
+                })
+            },
+            error: function(data) {
+                notyf.error(data.message)
+            }
+        })
+    }
+
+    $('#state').change(function() {
+        $('#city').html('')
+        $('#city').attr('disabled', false)
+
+        let province = $(this).val()
+
+        $.ajax({
+            url: `{{ route('customer.checkout.get-city') }}?province=${province}`,
+            type: 'GET',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(res) {
+                res.rajaongkir.results.forEach((item) => {
+                    $('#city').append(
+                        `<option value="${item.city_id}">${item.city_name}</option>`)
+                })
+
+                getCostOngkir()
+            },
+            error: function(data) {
+                notyf.error(data.message)
+            }
+        })
+    })
+
+    $('#city').change(function() {
+        getCostOngkir()
+    })
+
+    function getCostOngkir() {
+        let destination = $('#city').val()
+        let weight = 1000;
+        let courier = $('#courier').val()
+        $('#service').html('')
+
+        $.ajax({
+            url: `{{ route('customer.checkout.get-cost') }}?destination=${destination}&weight=${weight}&courier=${courier}`,
+            type: 'GET',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(res) {
+                res.rajaongkir.results[0].costs.forEach((item) => {
+                    $('#service').append(
+                        `<option value="${item.cost[0].value}">${number_format(item.cost[0].value)} (${item.service}) ${item.description} - Estimate: ${item.cost[0].etd}</option>`
+                    )
+                })
+            },
+            error: function(data) {
+                notyf.error(data.message)
+            }
+        })
+    }
+
+    $('#courier').change(function() {
+        getCostOngkir()
+    })
 </script>
