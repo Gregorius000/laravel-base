@@ -4,8 +4,8 @@
             <div class="grid md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4 mb-4">
                 <div class="sm:col-span-12  md:col-span-12 lg:col-span-4 xl:col-span-4 ">
                     <div
-                        class="bg-white border border-slate-200  rounded-md w-full relative">
-                        <div class="border-b border-slate-200 py-3 px-4">
+                        class="bg-white dark:bg-gray-900 border border-slate-200 dark:border-slate-700/40  rounded-md w-full relative">
+                        <div class="border-b border-slate-200 dark:border-slate-700/40 py-3 px-4 dark:text-slate-300/70">
                             <div class="flex-none md:flex">
                                 <h4 class="font-medium flex-1 self-center mb-2 md:mb-0">Order Summary</h4>
                             </div>
@@ -15,18 +15,18 @@
                                 <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
                                     <div class="overflow-hidden">
                                         <table class="min-w-full">
-                                            <thead class="bg-slate-100">
+                                            <thead class="bg-slate-100 dark:bg-slate-700/20">
                                                 <tr>
                                                     <th scope="col"
-                                                        class="p-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
+                                                        class="p-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                                                         Products
                                                     </th>
                                                     <th scope="col"
-                                                        class="p-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
+                                                        class="p-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                                                         Quantity
                                                     </th>
                                                     <th scope="col"
-                                                        class="p-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
+                                                        class="p-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                                                         Total
                                                     </th>
                                                 </tr>
@@ -39,7 +39,7 @@
                             </div>
                         </div>
                     </div> <!--end card-->
-                    <div class="bg-black shadow  rounded-md relative w-full mt-4">
+                    <div class="bg-black dark:bg-slate-800/30 shadow  rounded-md relative w-full mt-4">
                         <div class="flex-auto p-4">
                             <div class="grid grid-cols-1  rounded-md">
                                 <div class="sm:-mx-6 lg:-mx-8">
@@ -48,7 +48,7 @@
                                             <tbody>
                                                 <!-- 1 -->
                                                 <tr
-                                                    class="border-b border-dashed border-slate-500/60">
+                                                    class="border-b border-dashed border-slate-500/60 dark:border-slate-700/40">
                                                     <td class="p-3 text-sm text-gray-300 whitespace-nowrap font-medium">
                                                         Subtotal
                                                     </td>
@@ -58,15 +58,16 @@
                                                     </td>
                                                 </tr>
                                                 <!-- 2 -->
-                                                {{-- <tr
-                                                    class="border-b border-dashed border-slate-500/60">
+                                                <tr
+                                                    class="border-b border-dashed border-slate-500/60 dark:border-slate-700/40">
                                                     <td class="p-3 text-sm text-gray-300 whitespace-nowrap font-medium">
                                                         Shipping Charge
                                                     </td>
-                                                    <td class="p-3 text-sm font-medium text-gray-400 whitespace-nowrap">
-                                                        $5.00
+                                                    <td id="shipping-charge"
+                                                        class="p-3 text-sm font-medium text-gray-400 whitespace-nowrap">
+                                                        -
                                                     </td>
-                                                </tr> --}}
+                                                </tr>
                                                 <!-- 3 -->
                                                 {{-- <tr class="">
                                                     <td class="p-3 text-sm text-gray-300 whitespace-nowrap font-medium">
@@ -78,7 +79,7 @@
                                                 </tr> --}}
                                                 <!-- 4 -->
                                                 <tr
-                                                    class="border-t-2 border-solid border-slate-500/60">
+                                                    class="border-t-2 border-solid border-slate-500/60 dark:border-slate-700/40">
                                                     <td
                                                         class="p-3 text-base text-gray-200 whitespace-nowrap font-medium">
                                                         Total
@@ -111,9 +112,9 @@
                 </div><!--end col-->
                 <div class="sm:col-span-12  md:col-span-12 lg:col-span-8 xl:col-span-8 ">
                     <div
-                        class="bg-white border border-slate-200  rounded-md w-full relative mb-4">
+                        class="bg-white dark:bg-gray-900 border border-slate-200 dark:border-slate-700/40  rounded-md w-full relative mb-4">
                         <div
-                            class="border-b border-slate-200 py-3 px-4">
+                            class="border-b border-slate-200 dark:border-slate-700/40 py-3 px-4 dark:text-slate-300/70">
                             <h4 class="font-medium">Delivery Address</h4>
                         </div><!--end header-title-->
                         <form action="{{ route('customer.checkout.process') }}" method="POST">
@@ -123,20 +124,20 @@
                                     <div class="col-span-4 md:col-span-2 lg:col-span-2 xl:col-span-2">
                                         <div class="mb-2">
                                             <label for="First_Name"
-                                                class="font-medium text-sm text-slate-600">First
+                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">First
                                                 Name<small class="text-red-600 text-sm">*</small></label>
                                             <input
-                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 "
+                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
                                                 placeholder="First name" type="text" name="first_name">
                                         </div>
                                     </div>
                                     <div class="col-span-4 md:col-span-2 lg:col-span-2 xl:col-span-2">
                                         <div class="mb-2">
                                             <label for="Last_name"
-                                                class="font-medium text-sm text-slate-600">Last
+                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">Last
                                                 Name<small class="text-red-600 text-sm">*</small></label>
                                             <input
-                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 "
+                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
                                                 placeholder="Last name" type="text" name="last_name">
                                         </div>
                                     </div>
@@ -145,10 +146,10 @@
                                     <div class="col-span-4 md:col-span-4 lg:col-span-4 xl:col-span-4">
                                         <div class="mb-2">
                                             <label for="Delivery_Address"
-                                                class="font-medium text-sm text-slate-600">Delivery
+                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">Delivery
                                                 Address<small class="text-red-600 text-sm">*</small></label>
                                             <input
-                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 "
+                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
                                                 placeholder="Address" type="text" name="address">
                                         </div>
                                     </div>
@@ -157,10 +158,10 @@
                                     <div class="col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1">
                                         <div class="mb-2">
                                             <label for="State"
-                                                class="font-medium text-sm text-slate-600">State<small
+                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">State<small
                                                     class="text-red-600 text-sm">*</small></label>
                                             <select id="state"
-                                                class="w-full rounded-md mt-1 border border-slate-300/60 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 "
+                                                class="w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
                                                 name="state">
                                                 <option selected disabled>Select State</option>
                                             </select>
@@ -169,10 +170,10 @@
                                     <div class="col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1">
                                         <div class="mb-2">
                                             <label for="City"
-                                                class="font-medium text-sm text-slate-600">City<small
+                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">City<small
                                                     class="text-red-600 text-sm">*</small></label>
                                             <select id="city"
-                                                class="w-full rounded-md mt-1 border border-slate-300/60 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 "
+                                                class="w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
                                                 name="city" disabled>
                                                 <option selected disabled>Select City</option>
                                             </select>
@@ -181,10 +182,10 @@
                                     <div class="col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1">
                                         <div class="mb-2">
                                             <label for="Country"
-                                                class="font-medium text-sm text-slate-600">Country<small
+                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">Country<small
                                                     class="text-red-600 text-sm">*</small></label>
                                             <select id="Country"
-                                                class="w-full rounded-md mt-1 border border-slate-300/60 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 "
+                                                class="w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
                                                 name="country">
                                                 <option class="dark:text-slate-700">Indonesia</option>
                                             </select>
@@ -193,10 +194,10 @@
                                     <div class="col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1">
                                         <div class="mb-2">
                                             <label for="Courier"
-                                                class="font-medium text-sm text-slate-600">Courier<small
+                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">Courier<small
                                                     class="text-red-600 text-sm">*</small></label>
                                             <select id="courier"
-                                                class="w-full rounded-md mt-1 border border-slate-300/60 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 "
+                                                class="w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
                                                 name="courier">
                                                 <option class="dark:text-slate-700" value="jne">JNE</option>
                                                 <option class="dark:text-slate-700" value="pos">POS</option>
@@ -206,11 +207,12 @@
                                         <div class="col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1">
                                             <div class="mb-2">
                                                 <label for="Service"
-                                                    class="font-medium text-sm text-slate-600">Service<small
+                                                    class="font-medium text-sm text-slate-600 dark:text-slate-400">Service<small
                                                         class="text-red-600 text-sm">*</small></label>
                                                 <select id="service"
-                                                    class="w-full rounded-md mt-1 border border-slate-300/60 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 "
-                                                    name="service">
+                                                    class="w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-[6.5px] focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
+                                                    name="service" disabled>
+                                                    <option selected disabled>Select Service</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -220,30 +222,30 @@
                                     <div class="col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1">
                                         <div class="mb-2">
                                             <label for="Zip_code"
-                                                class="font-medium text-sm text-slate-600">Zip
+                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">Zip
                                                 code<small class="text-red-600 text-sm">*</small></label>
-                                            <input
-                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 "
+                                            <input id="zip_code"
+                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
                                                 placeholder="------" type="text" name="zip_code">
                                         </div>
                                     </div>
                                     <div class="col-span-4 md:col-span-2 lg:col-span-2 xl:col-span-2">
                                         <div class="mb-2">
                                             <label for="Email_Address"
-                                                class="font-medium text-sm text-slate-600">Email
+                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">Email
                                                 Address</label>
                                             <input
-                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 "
-                                                placeholder="Enter Email" type="text" name="email">
+                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
+                                                placeholder="Enter Email" type="text" name="email_address">
                                         </div>
                                     </div>
                                     <div class="col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1">
                                         <div class="mb-2">
                                             <label for="Mobile_No"
-                                                class="font-medium text-sm text-slate-600">Mobile
+                                                class="font-medium text-sm text-slate-600 dark:text-slate-400">Mobile
                                                 No<small class="text-red-600 text-sm">*</small></label>
                                             <input
-                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 "
+                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-brand-500 dark:focus:border-brand-500  dark:hover:border-slate-700"
                                                 placeholder="Mobile no" type="text" name="phone_number">
                                         </div>
                                     </div>
@@ -251,7 +253,7 @@
                                 <label class="flex">
                                     <input type="checkbox" class="accent-brand-500">
                                     <span for="default-checkbox"
-                                        class="ms-1 text-sm font-medium text-slate-600">Confirm
+                                        class="ms-1 text-sm font-medium text-slate-600 dark:text-gray-300">Confirm
                                         Shipping
                                         Address</span>
                                 </label>
@@ -270,6 +272,8 @@
     </div>
 </x-customer-layout>
 <script>
+    let weight = 0;
+
     $(document).ready(function() {
         getCartData()
         getState()
@@ -319,48 +323,56 @@
                 res.data.forEach(item => {
                     total_qty += item.total_qty
                     total_price += item.total_qty * item.price
+                    weight += item.weight
 
                     html +=
                         `
-                        <tr class="bg-white border-b border-dashed">
+                        <tr class="bg-white border-b border-dashed dark:bg-gray-900 dark:border-gray-700/40">
                                                     <td
-                                                        class="p-3 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                                        class="flex p-3 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-slate-300">
                                                         <img src="${item.image}" alt=""
                                                             class="mr-2 h-8 inline-block">
                                                         <h5
-                                                            class="text-sm font-semibold text-slate-700 inline-block">
-                                                            ${item.name}</h5>
+                                                            class="text-sm font-semibold text-slate-700 dark:text-gray-400 inline-block">
+                                                            <p>${item.name}</p>
+                                                            <small>${item.weight} (g)</small>
+                                                            </h5>
                                                     </td>
                                                     <td
-                                                        class="p-3 text-sm text-gray-500 whitespace-nowrap">
+                                                        class="p-3 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                         ${item.total_qty}
                                                     </td>
                                                     <td
-                                                        class="p-3 text-sm text-gray-500 whitespace-nowrap">
+                                                        class="p-3 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                                         ${number_format(item.total_qty * item.price)}
                                                     </td>
                                                 </tr>`
                 });
 
                 html += `
-                <tr class="bg-white">
+                <tr class="bg-white dark:bg-gray-900">
                                                     <td
-                                                        class="p-3 text-base font-semibold text-gray-900 whitespace-nowrap">
+                                                        class="p-3 text-base font-semibold text-gray-900 whitespace-nowrap dark:text-slate-300">
                                                         Total
                                                     </td>
                                                     <td
-                                                        class="p-3 text-base font-semibold text-gray-900 whitespace-nowrap">
+                                                        class="p-3 text-base font-semibold text-gray-900 whitespace-nowrap dark:text-slate-300">
                                                         ${total_qty}
                                                     </td>
                                                     <td
-                                                        class="p-3 text-base font-semibold text-gray-900 whitespace-nowrap">
+                                                        class="p-3 text-base font-semibold text-gray-900 whitespace-nowrap dark:text-slate-300">
                                                         ${number_format(total_price)}
                                                     </td>
                                                 </tr>
                 `
 
                 $('#subtotal').html(number_format(total_price))
-                $('#total').html(number_format(total_price))
+
+                let shipping_charge = parseInt($('#service').find(':selected').val() == "Select Service" ?
+                    0 : $('#service').find(':selected').val())
+
+                $('#shipping-charge').html(number_format(shipping_charge))
+                $('#total').html(number_format(total_price + shipping_charge))
 
                 $('#table-cart').html(html)
 
@@ -373,6 +385,8 @@
     }
 
     function getState() {
+        $('#state').html(`<option>Loading ...</option>`)
+
         $.ajax({
             url: `{{ route('customer.checkout.get-province') }}`,
             type: 'GET',
@@ -380,10 +394,14 @@
             cache: false,
             processData: false,
             success: function(res) {
+                $('#state').html('')
+
                 res.rajaongkir.results.forEach((item) => {
                     $('#state').append(
                         `<option value="${item.province_id}">${item.province}</option>`)
                 })
+
+                getCity()
             },
             error: function(data) {
                 notyf.error(data.message)
@@ -391,11 +409,11 @@
         })
     }
 
-    $('#state').change(function() {
-        $('#city').html('')
+    function getCity() {
+        $('#city').html('<option>Loading ...</option>')
         $('#city').attr('disabled', false)
 
-        let province = $(this).val()
+        let province = $('#state').val()
 
         $.ajax({
             url: `{{ route('customer.checkout.get-city') }}?province=${province}`,
@@ -404,10 +422,14 @@
             cache: false,
             processData: false,
             success: function(res) {
+                $('#city').html(``)
                 res.rajaongkir.results.forEach((item) => {
                     $('#city').append(
-                        `<option value="${item.city_id}">${item.city_name}</option>`)
+                        `<option value="${item.city_id}" data-code="${item.postal_code}">${item.city_name}</option>`
+                    )
                 })
+
+                $('#zip_code').val($('#city').find(':selected').data('code'))
 
                 getCostOngkir()
             },
@@ -415,17 +437,23 @@
                 notyf.error(data.message)
             }
         })
+    }
+
+    $('#state').change(function() {
+        getCity()
     })
 
     $('#city').change(function() {
+        $('#zip_code').val($('#city').find(':selected').data('code'))
+
         getCostOngkir()
     })
 
     function getCostOngkir() {
         let destination = $('#city').val()
-        let weight = 1000;
         let courier = $('#courier').val()
-        $('#service').html('')
+        $('#service').html('<option>Loading ...</option>')
+        $('#service').attr('disabled', false)
 
         $.ajax({
             url: `{{ route('customer.checkout.get-cost') }}?destination=${destination}&weight=${weight}&courier=${courier}`,
@@ -434,11 +462,15 @@
             cache: false,
             processData: false,
             success: function(res) {
+                $('#service').html('')
+
                 res.rajaongkir.results[0].costs.forEach((item) => {
                     $('#service').append(
                         `<option value="${item.cost[0].value}">${number_format(item.cost[0].value)} (${item.service}) ${item.description} - Estimate: ${item.cost[0].etd}</option>`
                     )
                 })
+
+                getCartData()
             },
             error: function(data) {
                 notyf.error(data.message)
@@ -448,5 +480,9 @@
 
     $('#courier').change(function() {
         getCostOngkir()
+    })
+
+    $('#service').change(function() {
+        getCartData()
     })
 </script>
