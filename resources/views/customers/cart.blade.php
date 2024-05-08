@@ -4,32 +4,32 @@
             <div class="grid md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4 mb-4">
                 <div class="sm:col-span-12  md:col-span-12 lg:col-span-8 xl:col-span-8 ">
                     <div
-                        class="bg-white dark:bg-gray-900 border border-slate-200 dark:border-slate-700/40  rounded-md w-full relative">
+                        class="bg-white border border-slate-200  rounded-md w-full relative">
                         <div class="grid grid-cols-1 p-4">
                             <div class="sm:-mx-6 lg:-mx-8">
                                 <div class="relative overflow-x-auto block w-full sm:px-6 lg:px-8">
                                     <div class="">
                                         <table class="w-full">
-                                            <thead class="bg-slate-100 dark:bg-slate-700/20">
+                                            <thead class="bg-slate-100">
                                                 <tr>
                                                     <th scope="col"
-                                                        class="p-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                                        class="p-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
                                                         Product
                                                     </th>
                                                     <th scope="col"
-                                                        class="p-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                                        class="p-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
                                                         Price
                                                     </th>
                                                     <th scope="col"
-                                                        class="p-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                                        class="p-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
                                                         Quantity
                                                     </th>
                                                     <th scope="col"
-                                                        class="p-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                                                        class="p-3 text-xs font-medium tracking-wider text-left text-gray-700 uppercase">
                                                         Total
                                                     </th>
                                                     <th scope="col"
-                                                        class="p-3 text-xs font-medium tracking-wider text-right text-gray-700 uppercase dark:text-gray-400">
+                                                        class="p-3 text-xs font-medium tracking-wider text-right text-gray-700 uppercase">
                                                         Action
                                                     </th>
                                                 </tr>
@@ -45,7 +45,7 @@
                 </div><!--end col-->
                 <div class="sm:col-span-12  md:col-span-12 lg:col-span-4 xl:col-span-4 ">
                     <div
-                        class="bg-black dark:bg-gray-900 shadow border border-slate-700/40 dark:border-slate-700/40  rounded-md w-full relative ">
+                        class="bg-black shadow border border-slate-700/40  rounded-md w-full relative ">
                         <div class="flex-auto p-4">
                             <div class="text-center">
                                 <img src="assets/images/logo-sm.png" alt="" class="h-12 inline-block mx-auto">
@@ -55,7 +55,7 @@
                                         class="form-input w-full rounded-md  border border-slate-500/60 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-500/60 focus:border-brand-500  text-slate-300"
                                         placeholder="promocode" required>
                                     <button type="submit"
-                                        class="absolute right-0 bottom-0 top-0 inline-block focus:outline-none text-brand-300 hover:bg-brand-500 hover:text-white bg-transparent border border-gray-500/60 dark:bg-transparent dark:text-brand-500 dark:hover:text-white dark:border-gray-700 dark:hover:bg-brand-500  text-sm font-medium py-1 px-3 rounded-e rounded-s-0">Apply</button>
+                                        class="absolute right-0 bottom-0 top-0 inline-block focus:outline-none text-brand-300 hover:bg-brand-500 hover:text-white bg-transparent border border-gray-500/60  text-sm font-medium py-1 px-3 rounded-e rounded-s-0">Apply</button>
                                 </div>
                                 <p class="text-sm text-slate-400 text-left mb-4">If you have a promocode, You
                                     can take discount !</p>
@@ -221,40 +221,40 @@
                 if (res.data.length > 0) {
                     res.data.forEach(item => {
                         html += `
-                        <tr class="bg-white border-b border-dashed dark:bg-gray-900 dark:border-gray-700/40">
+                        <tr class="bg-white border-b border-dashed">
                                 <td
-                                    class="p-3 text-sm font-medium whitespace-nowrap dark:text-white">
+                                    class="p-3 text-sm font-medium whitespace-nowrap">
                                     <div class="flex items-center">
                                         <img src="${item.image}" alt=""
                                             class="mr-2 h-8 inline-block">
                                         <div class="self-center">
                                             <h5
-                                                class="text-sm font-semibold text-slate-700 dark:text-gray-400">
+                                                class="text-sm font-semibold text-slate-700">
                                                 ${item.name}</h5>
                                             <span
                                                 class="block  font-medium text-slate-500">${item.description.substring(0,15)}</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="p-3 text-sm text-gray-600 font-medium whitespace-nowrap dark:text-gray-400"
+                                <td class="p-3 text-sm text-gray-600 font-medium whitespace-nowrap"
                                     data-price ="${item.price}">
                                     Rp. ${number_format(item.price)}
                                 </td>
                                 <td
-                                    class="p-3 text-sm text-gray-600 font-medium whitespace-nowrap dark:text-gray-400">
+                                    class="p-3 text-sm text-gray-600 font-medium whitespace-nowrap">
                                     <input
-                                        class="form-input border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent  rounded-md mt-1 border-gray-200 px-3 py-1 text-sm focus:outline-none focus:ring-0 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary-500  dark:hover:border-slate-700"
+                                        class="form-input border border-slate-300/60 bg-transparent  rounded-md mt-1 border-gray-200 px-3 py-1 text-sm focus:outline-none focus:ring-0 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-primary-500 "
                                         style="width:100px;" type="number" min="0"
                                         onchange="changeQty(this)"
                                         value="${item.total_qty}"
                                         data-id="${item.id}" id="example-number-input">
                                 </td>
                                 <td
-                                    class="p-3 text-sm font-semibold text-slate-700 whitespace-nowrap dark:text-gray-400">
+                                    class="p-3 text-sm font-semibold text-slate-700 whitespace-nowrap">
                                     Rp.  ${number_format(item.price)}
                                 </td>
                                 <td
-                                    class="p-3 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400 text-right">
+                                    class="p-3 text-sm text-gray-500 whitespace-nowrap text-right">
                                     <button type="button" onClick="deleteCart(this,${item.id})" class="text-red-500">
                                        Remove
                                     </button>
