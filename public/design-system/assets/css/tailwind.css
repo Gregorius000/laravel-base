@@ -3945,10 +3945,10 @@ video {
     color: rgb(191 45 90 / var(--tw-placeholder-opacity)) !important;
 }
 .accent-brand-500 {
-    accent-color: #06090f !important;
+    color: #06090f !important;
 }
 .accent-primary-500 {
-    accent-color: #3874ff !important;
+    color: #3874ff !important;
 }
 .opacity-0 {
     opacity: 0 !important;
