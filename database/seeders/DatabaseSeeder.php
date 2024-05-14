@@ -14,9 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Create 10 users using the factory
         \App\Models\User::factory(10)->create();
 
-        $this->call(ProductSeeder::class);
+        // Call the seeders
         $this->call([
             ProductCategorySeeder::class,
             ProductSeeder::class,
@@ -24,8 +25,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\User::create([
-            'name' => 'Yoga Meleniawan Pamungkas',
-            'email' => 'yogameleniawan@gmail.com',
+            'name' => 'Gregorius Agung',
+            'email' => 'agunggregorius845@gmail.com',
             'email_verified_at' => now(),
             'password' => Hash::make('qwerty123'), // password
             'two_factor_secret' => null,
