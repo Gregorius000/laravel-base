@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('phone_number');
             $table->integer('total_checkout');
             $table->string('status');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
