@@ -15,7 +15,6 @@ class Transaction extends Model
 
     public function scopeGetTransactionByUser(Builder $query)
     {
-        $query->leftJoin('detail_transactions', 'transactions.id', '=', 'detail_transactions.transaction_id')
-            ->where('transactions.user_id', Auth::user()->id);
+        $query->where('user_id', Auth::user()->id);
     }
 }
