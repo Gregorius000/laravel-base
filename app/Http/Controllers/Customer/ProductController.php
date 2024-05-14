@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+
     public function index(Request $request)
     {
         $products = Product::with(['product_category'])
