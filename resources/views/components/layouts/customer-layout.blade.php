@@ -402,7 +402,7 @@
     <script src="{{ asset('design-system/assets/libs/lucide/umd/lucide.min.js') }}"></script>
     <script src="{{ asset('design-system/assets/libs/simplebar/simplebar.min.js') }}"></script>
     <script src="{{ asset('design-system/assets/libs/flatpickr/flatpickr.min.js') }}"></script>
-    {{-- <script src="{{ asset('design-system/assets/libs/@frostui/tailwindcss/frostui.js') }}"></script> --}}
+    <script id="frostui" src="{{ asset('design-system/assets/libs/@frostui/tailwindcss/frostui.js') }}"></script>
 
     <script src="{{ asset('design-system/assets/libs/nice-select2/js/nice-select2.js') }}"></script>
     <script src="{{ asset('design-system/assets/libs/swiper/swiper-bundle.min.js') }}"></script>
