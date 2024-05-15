@@ -1,5 +1,4 @@
-<nav id="topbar"
-    class="topbar border-b   fixed inset-x-0  duration-300
+<nav id="topbar" class="topbar border-b   fixed inset-x-0  duration-300
              block print:hidden z-50">
     <div
         class="mx-0 flex max-w-full flex-wrap items-center lg:mx-auto relative top-[50%] start-[50%] transform -translate-x-1/2 -translate-y-1/2">
@@ -67,8 +66,7 @@
                                             class="text-sm font-medium text-gray-900 truncate
                                ">
                                             Karen Robinson</p>
-                                        <p
-                                            class="text-gray-500 mb-0 text-xs truncate
+                                        <p class="text-gray-500 mb-0 text-xs truncate
                                ">
                                             Hey ! i'm available here
                                         </p>
@@ -86,8 +84,7 @@
                                             class="text-sm font-medium text-gray-900 truncate
                                ">
                                             Your order is placed</p>
-                                        <p
-                                            class="text-gray-500 mb-0 text-xs truncate
+                                        <p class="text-gray-500 mb-0 text-xs truncate
                                ">
                                             Dummy text of the printing and industry.
                                         </p>
@@ -107,8 +104,7 @@
                                             class="text-sm font-medium text-gray-900 truncate
                                ">
                                             Robert McCray</p>
-                                        <p
-                                            class="text-gray-500 mb-0 text-xs truncate
+                                        <p class="text-gray-500 mb-0 text-xs truncate
                                ">
                                             Good Morning!
                                         </p>
@@ -126,8 +122,7 @@
                                             class="text-sm font-medium  text-gray-900 truncate
                                ">
                                             Meeting with designers</p>
-                                        <p
-                                            class="text-gray-500 mb-0 text-xs truncate
+                                        <p class="text-gray-500 mb-0 text-xs truncate
                                ">
                                             It is a long established fact that a reader.
                                         </p>
@@ -160,25 +155,23 @@
                         <li>
                             <a href="#"
                                 class="flex items-center py-2 px-3 text-sm text-gray-700 hover:bg-gray-50
-                         
+
                          ">
-                                <span data-lucide="user"
-                                    class="w-4 h-4 inline-block text-slate-800 me-2"></span>
+                                <span data-lucide="user" class="w-4 h-4 inline-block text-slate-800 me-2"></span>
                                 Profile</a>
                         </li>
                         <li>
                             <a href="#"
                                 class="flex items-center py-2 px-3 text-sm text-gray-700 hover:bg-gray-50
-                         
+
                          ">
-                                <span data-lucide="settings"
-                                    class="w-4 h-4 inline-block text-slate-800 me-2"></span>
+                                <span data-lucide="settings" class="w-4 h-4 inline-block text-slate-800 me-2"></span>
                                 Settings</a>
                         </li>
                         <li>
                             <a href="#"
                                 class="flex items-center py-2 px-3 text-sm text-gray-700 hover:bg-gray-50
-                         
+
                          ">
                                 <span data-lucide="dollar-sign"
                                     class="w-4 h-4 inline-block text-slate-800 me-2"></span>
@@ -187,10 +180,9 @@
                         <li>
                             <a href="auth-lockscreen.html"
                                 class="flex items-center py-2 px-3 text-sm text-red-500 hover:bg-gray-50 hover:text-red-600
-                         
+
                          ">
-                                <span data-lucide="power"
-                                    class="w-4 h-4 inline-block text-red-500 me-2"></span>
+                                <span data-lucide="power" class="w-4 h-4 inline-block text-red-500 me-2"></span>
                                 Sign out</a>
                         </li>
                     </ul>
