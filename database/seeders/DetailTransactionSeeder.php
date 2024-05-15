@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\DetailTransaction;
 use Illuminate\Database\Seeder;
 
 class DetailTransactionSeeder extends Seeder
@@ -12,6 +12,9 @@ class DetailTransactionSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        DetailTransaction::create([
+            'product_id' => 4,
+            'transaction_id' => 2,
+        ]);
     }
 }
