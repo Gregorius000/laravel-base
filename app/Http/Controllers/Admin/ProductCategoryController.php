@@ -3,31 +3,24 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
 use App\Models\ProductCategory;
-use App\Service\UploadFileService;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Support\Str;
 
-class ProductController extends Controller
+class ProductCategoryController extends Controller
 {
-    public function __construct(public UploadFileService $uploadFileService)
-    {
-    }
-
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Product::with('product_category')->get();
+            $data = ProductCategory::all();
 
             return DataTables::of($data)
                 ->addColumn('action', function ($row) {
                     return '<div class="flex flex-row items-center gap-2">
-                        <a href="' . route('admin.product.edit', $row->id) . '">
+                        <a href="' . route('admin.product-categories.edit', $row->id) . '">
                             <i data-lucide="pen" class="top-icon w-5 h-5 text-green-500"></i>
                         </a>
                         <button type="button" data-fc-type="modal" data-fc-target="modalcenter"
@@ -39,7 +32,7 @@ class ProductController extends Controller
                 ->rawColumns(['action'])
                 ->toJson();
         }
-        return view('admin.product.index');
+        return view('admin.product_category.index');
     }
 
     /**
@@ -47,9 +40,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $product_categories = ProductCategory::all();
-
-        return view('admin.product.add', compact('product_categories'));
+        return view('admin.product_category.add');
     }
 
     /**
@@ -58,19 +49,11 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         try {
-            $path = $this->uploadFileService->uploadFile($request->file('image'));
-
-            Product::create([
+            ProductCategory::create([
                 'name' => $request->name,
-                'description' => $request->description,
-                'price' => $request->price,
-                'weight' => $request->weight,
-                'product_category_id' => $request->product_category_id,
-                'image' => $path,
-                'slug' => Str::slug($request->name)
             ]);
 
-            return redirect()->route('admin.product.index')->with('success', "Product Added");
+            return redirect()->route('admin.product-categories.index')->with('success', "Product Category Added");
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }
@@ -89,10 +72,9 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        $data = Product::find($id);
-        $product_categories = ProductCategory::all();
+        $data = ProductCategory::find($id);
 
-        return view('admin.product.edit', compact('data', 'product_categories'));
+        return view('admin.product_category.edit', compact('data'));
     }
 
     /**
@@ -102,25 +84,13 @@ class ProductController extends Controller
     {
         try {
 
-            $data = Product::find($id);
-
-            if ($request->file('image') != null) {
-                $path = $this->uploadFileService->uploadFile($request->file('image'));
-            } else {
-                $path = $data->image;
-            }
+            $data = ProductCategory::find($id);
 
             $data->update([
                 'name' => $request->name,
-                'description' => $request->description,
-                'price' => $request->price,
-                'weight' => $request->weight,
-                'product_category_id' => $request->product_category_id,
-                'image' => $path,
-                'slug' => Str::slug($request->name)
             ]);
 
-            return redirect()->route('admin.product.index')->with('success', "Product Updated");
+            return redirect()->route('admin.product-categories.index')->with('success', "Product Category Updated");
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }
@@ -132,11 +102,11 @@ class ProductController extends Controller
     public function destroy(Request $request, string $id)
     {
         try {
-            $data = Product::find($request->product_id);
+            $data = ProductCategory::find($request->product_category_id);
 
             $data->delete();
 
-            return redirect()->back()->with('success', "Product deleted");
+            return redirect()->back()->with('success', "Product Category deleted");
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }

@@ -2,7 +2,7 @@
 @section('breadcrumb')
     <li><a href="#" class="text-gray-500 dark:text-slate-400">Admin</a></li>
     <li><span class="text-gray-500 dark:text-slate-400 mx-2">/</span></li>
-    <li class="text-gray-500 dark:text-slate-400">Product</li>
+    <li class="text-gray-500 dark:text-slate-400">Product Categories</li>
 @endsection
 @section('content')
     @if (\Session::has('success'))
@@ -19,9 +19,9 @@
     <div class="xl:w-full  min-h-[calc(100vh-56px)] relative pb-0">
         <div class="container my-4 p-4 bg-white">
             <div class="grid grid-cols-12 sm:grid-cols-12 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4">
-                <a href="{{ route('admin.product.create') }}"
+                <a href="{{ route('admin.product-categories.create') }}"
                     class="px-2 py-1 bg-primary-500/10 border border-transparent collapse:bg-green-100 text-primary text-sm rounded hover:bg-blue-600 hover:text-white"><i
-                        class="ti ti-plus me-1"></i> New Product</a>
+                        class="ti ti-plus me-1"></i>New Product Category</a>
                 <div class="col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-12 xl:col-span-12">
                     <div class="grid grid-cols-1">
                         <div class="sm:-mx-6 lg:-mx-8">
@@ -29,10 +29,8 @@
                                 <table id="data-table" class="w-full" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>ID Product</th>
+                                            <th>ID Product Category</th>
                                             <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Category</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -48,7 +46,8 @@
     <div class="modal animate-ModalSlide hidden" id="modalcenter">
         <div
             class="relative w-auto pointer-events-none sm:max-w-lg sm:my-0 sm:mx-auto z-[99] flex items-center h-[calc(100%-3.5rem)]">
-            <form action="{{ route('admin.product.destroy', 'id') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.product-categories.destroy', 'id') }}" method="POST"
+                enctype="multipart/form-data">
                 @method('DELETE')
                 @csrf
                 <div
@@ -56,13 +55,13 @@
                     <div
                         class="flex shrink-0 items-center justify-between py-2 px-4 rounded-t border-b border-solid dark:border-gray-700 bg-slate-800">
                         <h6 class="mb-0 leading-4 text-base font-semibold text-slate-300 mt-0" id="staticBackdropLabel1">
-                            Delete Product</h6>
+                            Delete Product Category</h6>
                         <button type="button"
                             class="box-content w-4 h-4 p-1 bg-slate-700/60 rounded-full text-slate-300 leading-4 text-xl close"
                             aria-label="Close" data-fc-dismiss>&times;</button>
                     </div>
                     <div class="relative flex-auto p-4 text-slate-600 dark:text-gray-300 leading-relaxed">
-                        <input type="hidden" name="product_id" id="product_id">
+                        <input type="hidden" name="product_category_id" id="product_category_id">
                         <p>Are you sure to delete?</p>
                     </div>
                     <div
@@ -85,12 +84,12 @@
         })
 
         function openModal(id) {
-            $('#product_id').val(id)
+            $('#product_category_id').val(id)
         }
 
         function initializeTable() {
             table = new DataTable('#data-table', {
-                ajax: `{{ route('admin.product.index') }}`,
+                ajax: `{{ route('admin.product-categories.index') }}`,
                 processing: true,
                 serverSide: true,
                 columns: [{
@@ -102,20 +101,9 @@
                         name: 'name'
                     },
                     {
-                        data: 'price',
-                        name: 'price',
-                        render: function(data, type, row, meta) {
-                            return number_format(data);
-                        }
-                    },
-                    {
-                        data: 'product_category.name',
-                        name: 'product_category.name'
-                    },
-                    {
                         data: 'action',
                         name: 'action'
-                    }
+                    },
                 ],
                 drawCallback: function(settings) {
                     reinitializeScript()
