@@ -51,8 +51,8 @@
             <form action="{{ route('admin.product.destroy', 'id') }}" method="POST" enctype="multipart/form-data">
                 @method('DELETE')
                 @csrf
-                <div
-                    class="relative flex flex-col w-full pointer-events-auto bg-white dark:bg-slate-800 bg-clip-padding rounded">
+                <div class="relative flex flex-col w-full pointer-events-auto bg-white dark:bg-slate-800 bg-clip-padding rounded"
+                    style="left: 50%">
                     <div
                         class="flex shrink-0 items-center justify-between py-2 px-4 rounded-t border-b border-solid dark:border-gray-700 bg-slate-800">
                         <h6 class="mb-0 leading-4 text-base font-semibold text-slate-300 mt-0" id="staticBackdropLabel1">
