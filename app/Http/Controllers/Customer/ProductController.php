@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-
     public function index(Request $request)
     {
         $products = Product::with(['product_category'])
@@ -26,7 +25,9 @@ class ProductController extends Controller
     {
         $product = Product::with(['product_category'])->where('slug', $slug)->first();
 
-        return view('customers.product-detail', compact('product'));
+        $related_products = Product::where('product_category_id', $product->product_category_id)->get();
+
+        return view('customers.product-detail', compact('product', 'related_products'));
     }
 
     public function addToCart(Request $request)

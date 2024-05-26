@@ -61,8 +61,8 @@ class TransactionController extends Controller
 
         $transaction = new TransactionProcess(
             transaction_id: $transaction_id,
-            receipt_number: $request->receipt_number,
-            valid: $request->input('switch-valid')
+            receipt_number: $request->receipt_number ?? "",
+            valid: $request->input('switch-valid') ?? false
         );
 
         try {

@@ -17,7 +17,7 @@ class ProductCategorySeeder extends Seeder
             ['name' => 'Product 2', 'created_at' => now(), 'updated_at' => now()],
             ['name' => 'Product 3', 'created_at' => now(), 'updated_at' => now()],
             ['name' => 'Product 4', 'created_at' => now(), 'updated_at' => now()],
-            // 
+            //
         ]);
     }
 }

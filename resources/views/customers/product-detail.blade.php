@@ -4,8 +4,8 @@
             <div class="grid md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4 mb-4">
                 <div class="sm:col-span-12  md:col-span-12 lg:col-span-12 xl:col-span-12 ">
                     <div
-                        class="bg-white border border-slate-200  rounded-md w-full relative">
-                        <div class="border-b border-slate-200 py-3 px-4">
+                        class="bg-white dark:bg-gray-900 border border-slate-200 dark:border-slate-700/40  rounded-md w-full relative">
+                        <div class="border-b border-slate-200 dark:border-slate-700/40 py-3 px-4 dark:text-slate-300/70">
                             <h4 class="font-medium">Title</h4>
                         </div><!--end header-title-->
                         <x-alert></x-alert>
@@ -18,44 +18,20 @@
                                 </div>
                                 <div class="sm:col-span-12  md:col-span-12 lg:col-span-6 xl:col-span-6 self-center">
                                     <span
-                                        class="bg-green-600/5 text-green-500 text-[14px] font-medium px-2.5 py-0.5 rounded h-5">{{ $product->product_category->name }}</span>
-                                    <div class="">
+                                        class="bg-blue-100 text-blue-500 text-[14px] font-medium px-2.5 py-0.5 rounded h-5">{{ $product->product_category->name }}</span>
+                                    <div class="flex flex-col gap-4">
                                         <h5 class="dark:text-slate-200 font-medium text-[30px] leading-9 mt-4">
                                             {{ $product->name }}</h5>
-                                        <p tabindex="0"
-                                            class="focus:outline-none text-primary-500 text-base font-medium">
-                                            Morden and good look model 2023.</p>
-                                        <ul class="mb-4">
-                                            <li class="inline-block">
-                                                <i class="icofont-star text-xl text-yellow-400 inline-block"></i>
-                                            </li>
-                                            <li class="inline-block">
-                                                <i class="icofont-star text-xl text-yellow-400 inline-block"></i>
-                                            </li>
-                                            <li class="inline-block">
-                                                <i class="icofont-star text-xl text-yellow-400 inline-block"></i>
-                                            </li>
-                                            <li class="inline-block">
-                                                <i class="icofont-star text-xl text-yellow-400 inline-block"></i>
-                                            </li>
-                                            <li class="inline-block">
-                                                <i class="icofont-star text-xl text-slate-400 inline-block"></i>
-                                            </li>
-                                            <li class="inline-block">
-                                                <span class="text-gray-700 text-sm font-medium">4.5
-                                                    (9885 reviews)</span>
-                                            </li>
-                                        </ul>
-                                        <h6 class="text-[28px] text-slate-700 font-semibold mb-4">
-                                            Rp. {{ number_format($product->price, 0) }}
+                                        <h6 class="text-[28px] text-white dark:text-white font-semibold mb-4">
+                                            <span class="bg-green-500 px-4 rounded-full">
+                                                Rp. {{ number_format($product->price, 0) }}
+                                            </span>
                                         </h6>
-                                        <h6 class="text-sm font-medium text-slate-800">Detail :</h6>
+                                        <h6 class="text-sm font-medium text-slate-800 dark:text-slate-400">Description :
+                                        </h6>
                                         <p
-                                            class="focus:outline-none text-gray-500 text-sm font-medium mb-4">
-                                            There are many variations of passages of Lorem Ipsum available, but the
-                                            majority have suffered alteration in some form, by injected humour, or
-                                            randomised words which don't look.
-                                            <a href="#" class="text-primary-500">more details</a>
+                                            class="focus:outline-none text-gray-500 dark:text-gray-400 text-sm font-medium mb-4">
+                                            {{ $product->description }}
                                         </p>
 
                                         <form id="form-cart" action="{{ route('customer.product-add-to-cart') }}"
@@ -63,11 +39,11 @@
                                             @csrf
                                             <input type="hidden" name="product_id" value="{{ $product->id }}" />
                                             <input
-                                                class="form-input border border-slate-300/60 bg-transparent  rounded-md mt-1 border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-0 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-brand-500 "
+                                                class="form-input border border-slate-300/60 dark:border-slate-700 dark:text-slate-300 bg-transparent  rounded-md mt-1 border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-0 placeholder:text-slate-400/70 hover:border-slate-400 focus:border-brand-500  dark:hover:border-slate-700"
                                                 style="width:100px;" type="number" min="0" value="0"
                                                 id="example-number-input" name="qty">
                                             <button id="btn-add-to-cart" type="submit"
-                                                class="inline-block focus:outline-none text-slate-600 hover:bg-brand-500 hover:text-white bg-transparent border border-gray-200  text-sm font-medium py-2 px-3 rounded"><i
+                                                class="inline-block focus:outline-none text-slate-600 hover:bg-brand-500 hover:text-white bg-transparent border border-gray-200 dark:bg-transparent dark:text-slate-400 dark:hover:text-white dark:border-gray-700 dark:hover:bg-brand-500  text-sm font-medium py-2 px-3 rounded"><i
                                                     class="ti ti-shopping-cart"></i> Add to cart</button>
                                         </form>
                                     </div>
@@ -81,330 +57,20 @@
                 <div class="sm:col-span-12  md:col-span-12 lg:col-span-12 xl:col-span-12">
                     <div class="w-full relative">
                         <div class="flex-auto ">
-                            <div class="mb-4 border-b border-gray-200" data-fc-type="tab">
+                            <div class="mb-4 border-b border-gray-200 dark:border-slate-700" data-fc-type="tab">
                                 <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" aria-label="Tabs">
                                     <li class="me-2" role="presentation">
-                                        <button class="inline-block p-4 rounded-t-lg border-b-2 active "
-                                            id="description-tab" data-fc-target="#description" type="button"
-                                            role="tab" aria-controls="description"
-                                            aria-selected="false">Description</button>
-                                    </li>
-                                    <li class="me-2" role="presentation">
                                         <button
-                                            class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300"
-                                            id="additional-tab" data-fc-target="#additional" type="button"
-                                            role="tab" aria-controls="additional" aria-selected="false">Additional
-                                            Info</button>
-                                    </li>
-                                    <li class="me-2" role="presentation">
-                                        <button
-                                            class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300"
+                                            class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
                                             id="reviews-tab" data-fc-target="#reviews" type="button" role="tab"
                                             aria-controls="reviews" aria-selected="false">Ratings & reviews</button>
                                     </li>
                                 </ul>
                             </div>
                             <div id="myTabContent">
-                                <div class="active  p-4 bg-gray-50 rounded-lg" id="description"
-                                    role="tabpanel" aria-labelledby="description-tab">
-                                    <p class="text-base text-gray-500">
-                                        {{ $product->description }}
-                                    </p>
-                                </div>
-                                <div class="hidden p-4 bg-gray-50 rounded-lg" id="additional"
-                                    role="tabpanel" aria-labelledby="additional-tab">
-                                    <div class="grid md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4">
-                                        <div class="sm:col-span-12  md:col-span-6 lg:col-span-6 xl:col-span-6 ">
-                                            <div class=" w-full relative">
-                                                <div class="flex-auto  text-center">
-                                                    <table class="table border rounded-lg w-full">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="w-[40%]"> </th>
-                                                                <th class="w-[60%]"></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr
-                                                                class="bg-white  border-b border-dashed">
-                                                                <td
-                                                                    class="bg-brand-400/5 align-middle border-e border-dashed">
-                                                                    <h6
-                                                                        class="mb-0 text-slate-800 uppercase font-semibold px-4 text-lg">
-                                                                        Brand name</h6>
-                                                                </td>
-                                                                <td class="p-4 mb-0">Robotech air zoom terra kiger 7
-                                                                </td>
-                                                            </tr>
-                                                            <tr
-                                                                class="bg-white border-b border-dashed">
-                                                                <td
-                                                                    class="bg-brand-400/5 align-middle border-e border-dashed">
-                                                                    <h6
-                                                                        class="mb-0 text-slate-800 uppercase font-semibold px-4 text-lg">
-                                                                        Size</h6>
-                                                                </td>
-                                                                <td class="p-4 mb-0">UK 5</td>
-                                                            </tr>
-                                                            <tr
-                                                                class="bg-white border-b border-dashed">
-                                                                <td
-                                                                    class="bg-brand-400/5 align-middle border-e border-dashed">
-                                                                    <h6
-                                                                        class="mb-0 text-slate-800 uppercase font-semibold px-4 text-lg">
-                                                                        Color</h6>
-                                                                </td>
-                                                                <td class="p-4 mb-0"><i
-                                                                        class="icofont-brand-mts text-pink-500"></i>
-                                                                    Pink</td>
-                                                            </tr>
-                                                            <tr class="bg-white">
-                                                                <td
-                                                                    class="bg-brand-400/5 align-middle border-e border-dashed">
-                                                                    <h6
-                                                                        class="mb-0 text-slate-800 uppercase font-semibold px-4 text-lg">
-                                                                        Country</h6>
-                                                                </td>
-                                                                <td class="p-4 mb-0">USA</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div> <!--end card-->
-                                        </div><!--end col-->
-                                        <div class="sm:col-span-12  md:col-span-6 lg:col-span-6 xl:col-span-6 ">
-                                            <div class=" w-full relative">
-                                                <div class="flex-auto  text-center">
-                                                    <table class="table border rounded-lg w-full">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="w-[40%]"> </th>
-                                                                <th class="w-[60%]"></th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr
-                                                                class="bg-white  border-b border-dashed">
-                                                                <td
-                                                                    class="bg-brand-400/5 align-middle border-e border-dashed">
-                                                                    <h6
-                                                                        class="mb-0 text-slate-800 uppercase font-semibold px-4 text-lg">
-                                                                        Department</h6>
-                                                                </td>
-                                                                <td class="p-4 mb-0">Mens</td>
-                                                            </tr>
-                                                            <tr
-                                                                class="bg-white border-b border-dashed">
-                                                                <td
-                                                                    class="bg-brand-400/5 align-middle border-e border-dashed">
-                                                                    <h6
-                                                                        class="mb-0 text-slate-800 uppercase font-semibold px-4 text-lg">
-                                                                        Item Weight</h6>
-                                                                </td>
-                                                                <td class="p-4 mb-0">400gm</td>
-                                                            </tr>
-                                                            <tr
-                                                                class="bg-white border-b border-dashed">
-                                                                <td
-                                                                    class="bg-brand-400/5 align-middle border-e border-dashed">
-                                                                    <h6
-                                                                        class="mb-0 text-slate-800 uppercase font-semibold px-4 text-lg">
-                                                                        Net Quantity</h6>
-                                                                </td>
-                                                                <td class="p-4 mb-0">1 Set</td>
-                                                            </tr>
-                                                            <tr class="bg-white">
-                                                                <td
-                                                                    class="bg-brand-400/5 align-middle border-e border-dashed">
-                                                                    <h6
-                                                                        class="mb-0 text-slate-800 uppercase font-semibold px-4 text-lg">
-                                                                        Customer Reviews</h6>
-                                                                </td>
-                                                                <td class="p-4 mb-0">
-                                                                    <div class="">
-                                                                        <i
-                                                                            class="icofont-star text-yellow-400 inline-block"></i>
-                                                                        <i
-                                                                            class="icofont-star text-yellow-400 inline-block"></i>
-                                                                        <i
-                                                                            class="icofont-star text-yellow-400 inline-block"></i>
-                                                                        <i
-                                                                            class="icofont-star text-yellow-400 inline-block"></i>
-                                                                        <i
-                                                                            class="icofont-star text-yellow-400 inline-block"></i>
-                                                                        <span
-                                                                            class="text-slate-800 font-semibold">4.8</span>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div> <!--end card-->
-                                        </div><!--end col-->
-                                    </div><!--end grid-->
-                                </div>
-                                <div class="hidden p-4 bg-gray-50 rounded-lg" id="reviews"
+                                <div class="active p-4 bg-gray-50 rounded-lg dark:bg-gray-800" id="reviews"
                                     role="tabpanel" aria-labelledby="reviews-tab">
-                                    <div class="grid md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4">
-                                        <div class="sm:col-span-12  md:col-span-6 lg:col-span-6 xl:col-span-6 ">
-                                            <div class=" w-full relative">
-                                                <div class="flex-auto p-4 text-center">
-                                                    <h3 class="my-4 font-semibold text-[34px]">4.8
-                                                    </h3>
-                                                    <p class="text-gray-600 font-semibold">Overall
-                                                        Rating</p>
-                                                    <div class="">
-                                                        <i
-                                                            class="icofont-star text-xl text-yellow-400 inline-block"></i>
-                                                        <i
-                                                            class="icofont-star text-xl text-yellow-400 inline-block"></i>
-                                                        <i
-                                                            class="icofont-star text-xl text-yellow-400 inline-block"></i>
-                                                        <i
-                                                            class="icofont-star text-xl text-yellow-400 inline-block"></i>
-                                                        <i
-                                                            class="icofont-star text-xl text-yellow-400 inline-block"></i>
-                                                        <span class="text-slate-800 font-semibold">4.8 (9885
-                                                            reviews)</span>
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <div class="flex justify-between">
-                                                            <span class="font-medium text-sm">5
-                                                                Star</span>
-                                                            <span
-                                                                class="text-sm font-medium text-slate-500">9180</span>
-                                                        </div>
-                                                        <div class="w-full">
-                                                            <div
-                                                                class="w-full h-[5px] relative bg-gray-200 rounded-full">
-                                                                <div class="h-[5px] bg-yellow-400 rounded-full"
-                                                                    style="width: 80%"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <div class="flex justify-between">
-                                                            <span class="font-medium text-sm">4
-                                                                Star</span>
-                                                            <span
-                                                                class="text-sm font-medium text-slate-500">84</span>
-                                                        </div>
-                                                        <div class="w-full">
-                                                            <div
-                                                                class="w-full h-[5px] relative bg-gray-200 rounded-full">
-                                                                <div class="h-[5px] bg-yellow-400 rounded-full"
-                                                                    style="width: 70%"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <div class="flex justify-between">
-                                                            <span class="font-medium text-sm">3
-                                                                Star</span>
-                                                            <span
-                                                                class="text-sm font-medium text-slate-500">24</span>
-                                                        </div>
-                                                        <div class="w-full">
-                                                            <div
-                                                                class="w-full h-[5px] relative bg-gray-200 rounded-full">
-                                                                <div class="h-[5px] bg-yellow-400 rounded-full"
-                                                                    style="width: 60%"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <div class="flex justify-between">
-                                                            <span class="font-medium text-sm">2
-                                                                Star</span>
-                                                            <span
-                                                                class="text-sm font-medium text-slate-500">12</span>
-                                                        </div>
-                                                        <div class="w-full">
-                                                            <div
-                                                                class="w-full h-[5px] relative bg-gray-200 rounded-full">
-                                                                <div class="h-[5px] bg-yellow-400 rounded-full"
-                                                                    style="width: 50%"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mb-4">
-                                                        <div class="flex justify-between">
-                                                            <span class="font-medium text-sm">1
-                                                                Star</span>
-                                                            <span
-                                                                class="text-sm font-medium text-slate-500">3</span>
-                                                        </div>
-                                                        <div class="w-full">
-                                                            <div
-                                                                class="w-full h-[5px] relative bg-gray-200 rounded-full">
-                                                                <div class="h-[5px] bg-yellow-400 rounded-full"
-                                                                    style="width: 40%"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> <!--end card-->
-                                        </div><!--end col-->
-                                        <div class="sm:col-span-12  md:col-span-6 lg:col-span-6 xl:col-span-6 ">
-                                            <div class=" w-full relative">
-                                                <div class="flex-auto">
-                                                    <h5 class="text-slate-800 text-3xl font-semibold">Be the first to
-                                                        review “Robotech Shoe”</h5>
-                                                    <form action="">
-                                                        <div class="mb-2">
-                                                            <label for="name-input"
-                                                                class="font-medium text-sm text-slate-600">Name
-                                                                <span class="text-red-500 text-lg">*</span></label>
-                                                            <input type="text" id="name-input"
-                                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-base text-lg hover:border-slate-400 focus:border-primary-500 ">
-                                                        </div>
-                                                        <div class="mb-2">
-                                                            <label for="email-input"
-                                                                class="font-medium text-sm text-slate-600">Email
-                                                                <span class="text-red-500 text-lg">*</span></label>
-                                                            <input type="text" id="email-input"
-                                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 bg-transparent px-3 py-2 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-base text-lg hover:border-slate-400 focus:border-primary-500 ">
-                                                        </div>
-                                                        <label for="email-input"
-                                                            class="font-medium text-sm text-slate-600">Your
-                                                            rating <span class="text-red-500 text-lg">*</span></label>
-                                                        <div class="starability-basic min-h-[30px] block mb-2">
-                                                            <input type="radio" id="rate5" name="rating"
-                                                                value="5" />
-                                                            <label for="rate5" title="Amazing">5 stars</label>
-
-                                                            <input type="radio" id="rate4" name="rating"
-                                                                value="4" />
-                                                            <label for="rate4" title="Very good">4 stars</label>
-
-                                                            <input type="radio" id="rate3" name="rating"
-                                                                value="3" />
-                                                            <label for="rate3" title="Average">3 stars</label>
-
-                                                            <input type="radio" id="rate2" name="rating"
-                                                                value="2" />
-                                                            <label for="rate2" title="Not good">2 stars</label>
-
-                                                            <input type="radio" id="rate1" name="rating"
-                                                                value="1" />
-                                                            <label for="rate1" title="Terrible">1 star</label>
-                                                        </div>
-                                                        <div class="mb-2">
-                                                            <label for="message"
-                                                                class="font-medium text-sm text-slate-600">Your
-                                                                message</label>
-                                                            <textarea id="message" rows="4"
-                                                                class="form-input w-full rounded-md mt-1 border border-slate-300/60 bg-transparent px-3 py-1 focus:outline-none focus:ring-0 placeholder:text-slate-400/70 placeholder:font-normal placeholder:text-sm hover:border-slate-400 focus:border-primary-500 "
-                                                                placeholder="Leave a comment..."></textarea>
-                                                        </div>
-                                                        <button type="button"
-                                                            class="px-4 py-2 lg:px-4 bg-brand-500  text-white text-base  transition hover:bg-brand-500 hover:text-white border border-brand border-dashed font-medium mb-2">Submit</button>
-                                                    </form>
-                                                </div>
-                                            </div> <!--end card-->
-                                        </div><!--end col-->
-                                    </div><!--end grid-->
+                                    <x-customers.rating :productId="$product->id" />
                                 </div>
                             </div>
                         </div>
@@ -420,225 +86,45 @@
                 </div><!--end col-->
             </div>
             <div class="grid md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-4 mb-4">
-                <div class="sm:col-span-12  md:col-span-4 lg:col-span-3 xl:col-span-2 ">
-                    <div
-                        class="bg-white border border-slate-200  rounded-md w-full relative">
-                        <div class="flex-auto  text-center">
-                            <div class="flex-auto text-center bg-gray-100">
-                                <span
-                                    class="absolute right-2 top-2 focus:outline-none text-[12px] bg-green-600/10 text-green-700 rounded font-medium py-0 px-2 mb-5 inline-block">50%
-                                    off</span>
-                                <a href="#">
-                                    <img src="assets/images/products/01.png" alt=""
-                                        class="h-44 inline-block my-4 transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-110 duration-500">
-                                </a>
-                            </div>
-                            <div class="flex-auto  text-center p-4">
-                                <span
-                                    class="focus:outline-none text-[12px] text-slate-500 border border-slate-200 rounded font-medium py-0 px-2 mb-5 inline-block">Electric</span>
-                                <a href="ecommerce-product-detail.html"
-                                    class="text-xl font-semibold text-slate-500 leading-3 block mb-2 truncate">White
-                                    Table Camera </a>
-                                <div class="mb-4">
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <span class="text-slate-800 font-semibold">4.8</span>
+
+                @foreach ($related_products as $item)
+                    <div class="sm:col-span-12  md:col-span-4 lg:col-span-3 xl:col-span-2 ">
+                        <div
+                            class="bg-white dark:bg-gray-900 border border-slate-200 dark:border-slate-700/40  rounded-md w-full relative">
+                            <div class="flex-auto  text-center">
+                                <div class="flex-auto text-center bg-gray-100">
+                                    <a href="{{ route('customer.product-detail', ['slug' => $item->slug]) }}">
+                                        <img src="{{ $item->image }}" alt=""
+                                            class="h-44 inline-block my-4 transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-110 duration-500">
+                                    </a>
                                 </div>
-                                <h4 class="text-3xl font-medium mb-4"><sup
-                                        class="text-sm text-slate-500">$</sup>49 <del
-                                        class="text-base text-slate-400">$99</del></h4>
-                                <button type="button"
-                                    class="px-4 py-1 lg:px-4 bg-transparent  text-brand text-base  transition hover:bg-brand-500/10 hover:text-brand-500 border border-slate-200 border-dashed font-medium w-full">Buy
-                                    Now</button>
-                            </div>
-                        </div>
-                    </div> <!--end card-->
-                </div><!--end col-->
-                <div class="sm:col-span-12  md:col-span-4 lg:col-span-3 xl:col-span-2 ">
-                    <div
-                        class="bg-white border border-slate-200  rounded-md w-full relative">
-                        <div class="flex-auto  text-center">
-                            <div class="flex-auto text-center bg-gray-100">
-                                <span
-                                    class="absolute right-2 top-2 focus:outline-none text-[12px] bg-orange-500 text-white rounded font-medium py-0 px-2 mb-5 inline-block">Coming
-                                    soon</span>
-                                <a href="#">
-                                    <img src="assets/images/products/04.png" alt=""
-                                        class="h-44 inline-block my-4 transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-110 duration-500">
-                                </a>
-                            </div>
-                            <div class="flex-auto  text-center p-4">
-                                <span
-                                    class="focus:outline-none text-[12px] text-slate-500 border border-slate-200 rounded font-medium py-0 px-2 mb-5 inline-block">Covid
-                                    Safety</span>
-                                <a href="ecommerce-product-detail.html"
-                                    class="text-xl font-semibold text-slate-500 leading-3 block mb-2 truncate">N95
-                                    Covid Safety Mask </a>
-                                <div class="mb-4">
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <span class="text-slate-800 font-semibold">4.8</span>
+                                <div class="flex-auto  text-center p-4">
+                                    <span
+                                        class="focus:outline-none text-[12px] text-slate-500 border border-slate-200 rounded font-medium py-0 px-2 mb-5 inline-block">{{ $item->product_category->name }}</span>
+                                    <a href="{{ route('customer.product-detail', ['slug' => $item->slug]) }}"
+                                        class="text-xl font-semibold text-slate-500 dark:text-gray-400 leading-3 block mb-2 truncate">{{ $item->name }}
+                                    </a>
+                                    <div class="mb-4">
+                                        <i class="icofont-star text-yellow-400 inline-block"></i>
+                                        <i class="icofont-star text-yellow-400 inline-block"></i>
+                                        <i class="icofont-star text-yellow-400 inline-block"></i>
+                                        <i class="icofont-star text-yellow-400 inline-block"></i>
+                                        <i class="icofont-star text-yellow-400 inline-block"></i>
+                                        <span class="text-slate-800 font-semibold">4.8</span>
+                                    </div>
+                                    <h4 class="text-3xl font-medium dark:text-slate-300 mb-4">
+                                        Rp. {{ number_format($item->price) }}
+                                    </h4>
+                                    <button type="button"
+                                        class="px-4 py-1 lg:px-4 bg-transparent  text-brand text-base  transition hover:bg-brand-500/10 hover:text-brand-500 border border-slate-200 border-dashed font-medium w-full"
+                                        onclick="location.href='{{ route('customer.product-detail', ['slug' => $item->slug]) }}'">Buy
+                                        Now</button>
                                 </div>
-                                <h4 class="text-3xl font-medium mb-4"><sup
-                                        class="text-sm text-slate-500">$</sup>9 <del
-                                        class="text-base text-slate-400">$19</del></h4>
-                                <button type="button"
-                                    class="px-4 py-1 lg:px-4 bg-transparent  text-brand text-base  transition hover:bg-brand-500/10 hover:text-brand-500 border border-slate-200 border-dashed font-medium w-full">Buy
-                                    Now</button>
                             </div>
-                        </div>
-                    </div> <!--end card-->
-                </div><!--end col-->
-                <div class="sm:col-span-12  md:col-span-4 lg:col-span-3 xl:col-span-2 ">
-                    <div
-                        class="bg-white border border-slate-200  rounded-md w-full relative">
-                        <div class="flex-auto  text-center">
-                            <div class="flex-auto text-center bg-gray-100">
-                                <a href="#">
-                                    <img src="assets/images/products/03.png" alt=""
-                                        class="h-44 inline-block my-4 transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-110 duration-500">
-                                </a>
-                            </div>
-                            <div class="flex-auto  text-center p-4">
-                                <span
-                                    class="focus:outline-none text-[12px] text-slate-500 border border-slate-200 rounded font-medium py-0 px-2 mb-5 inline-block">Entertainment</span>
-                                <a href="ecommerce-product-detail.html"
-                                    class="text-xl font-semibold text-slate-500 leading-3 block mb-2 truncate">Imported
-                                    VR Box </a>
-                                <div class="mb-4">
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <span class="text-slate-800 font-semibold">4.8</span>
-                                </div>
-                                <h4 class="text-3xl font-medium mb-4"><sup
-                                        class="text-sm text-slate-500">$</sup>29 <del
-                                        class="text-base text-slate-400">$39</del></h4>
-                                <button type="button"
-                                    class="px-4 py-1 lg:px-4 bg-transparent  text-brand text-base  transition hover:bg-brand-500/10 hover:text-brand-500 border border-slate-200 border-dashed font-medium w-full">Buy
-                                    Now</button>
-                            </div>
-                        </div>
-                    </div> <!--end card-->
-                </div><!--end col-->
-                <div class="sm:col-span-12  md:col-span-4 lg:col-span-3 xl:col-span-2 ">
-                    <div
-                        class="bg-white border border-slate-200  rounded-md w-full relative">
-                        <div class="flex-auto  text-center">
-                            <div class="flex-auto text-center bg-gray-100">
-                                <span
-                                    class="absolute right-2 top-2 focus:outline-none text-[12px] bg-red-600/10 text-red-500 rounded font-medium py-0 px-2 mb-5 inline-block">Soldout</span>
-                                <a href="#">
-                                    <img src="assets/images/products/02.png" alt=""
-                                        class="h-44 inline-block my-4 transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-110 duration-500">
-                                </a>
-                            </div>
-                            <div class="flex-auto  text-center p-4">
-                                <span
-                                    class="focus:outline-none text-[12px] text-slate-500 border border-slate-200 rounded font-medium py-0 px-2 mb-5 inline-block">Footwear</span>
-                                <a href="ecommerce-product-detail.html"
-                                    class="text-xl font-semibold text-slate-500 leading-3 block mb-2 truncate">New
-                                    Colorfull Shoes </a>
-                                <div class="mb-4">
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <span class="text-slate-800 font-semibold">4.8</span>
-                                </div>
-                                <h4 class="text-3xl font-medium mb-4"><sup
-                                        class="text-sm text-slate-500">$</sup>99 <del
-                                        class="text-base text-slate-400">$199</del></h4>
-                                <button type="button"
-                                    class="px-4 py-1 lg:px-4 bg-transparent  text-brand text-base  transition hover:bg-brand-500/10 hover:text-brand-500 border border-slate-200 border-dashed font-medium w-full">Buy
-                                    Now</button>
-                            </div>
-                        </div>
-                    </div> <!--end card-->
-                </div><!--end col-->
-                <div class="sm:col-span-12  md:col-span-4 lg:col-span-3 xl:col-span-2 ">
-                    <div
-                        class="bg-white border border-slate-200  rounded-md w-full relative">
-                        <div class="flex-auto  text-center">
-                            <div class="flex-auto text-center bg-gray-100">
-                                <span
-                                    class="absolute right-2 top-2 focus:outline-none text-[12px] bg-green-600/10 text-green-700 rounded font-medium py-0 px-2 mb-5 inline-block">50%
-                                    off</span>
-                                <a href="#">
-                                    <img src="assets/images/products/pro-4.png" alt=""
-                                        class="h-44 inline-block my-4 transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-110 duration-500">
-                                </a>
-                            </div>
-                            <div class="flex-auto  text-center p-4">
-                                <span
-                                    class="focus:outline-none text-[12px] text-slate-500 border border-slate-200 rounded font-medium py-0 px-2 mb-5 inline-block">Entertainment</span>
-                                <a href="ecommerce-product-detail.html"
-                                    class="text-xl font-semibold text-slate-500 leading-3 block mb-2 truncate">Mannat
-                                    530 Bluetooth Wireless </a>
-                                <div class="mb-4">
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <span class="text-slate-800 font-semibold">4.8</span>
-                                </div>
-                                <h4 class="text-3xl font-medium mb-4"><sup
-                                        class="text-sm text-slate-500">$</sup>49 <del
-                                        class="text-base text-slate-400">$99</del></h4>
-                                <button type="button"
-                                    class="px-4 py-1 lg:px-4 bg-transparent  text-brand text-base  transition hover:bg-brand-500/10 hover:text-brand-500 border border-slate-200 border-dashed font-medium w-full">Buy
-                                    Now</button>
-                            </div>
-                        </div>
-                    </div> <!--end card-->
-                </div><!--end col-->
-                <div class="sm:col-span-12  md:col-span-4 lg:col-span-3 xl:col-span-2 ">
-                    <div
-                        class="bg-white border border-slate-200  rounded-md w-full relative">
-                        <div class="flex-auto  text-center">
-                            <div class="flex-auto text-center bg-gray-100">
-                                <span
-                                    class="absolute right-2 top-2 focus:outline-none text-[12px] bg-orange-500 text-white rounded font-medium py-0 px-2 mb-5 inline-block">Coming
-                                    soon</span>
-                                <a href="#">
-                                    <img src="assets/images/products/pro-1.png" alt=""
-                                        class="h-44 inline-block my-4 transition ease-in-out delay-50  hover:-translate-y-1 hover:scale-110 duration-500">
-                                </a>
-                            </div>
-                            <div class="flex-auto  text-center p-4">
-                                <span
-                                    class="focus:outline-none text-[12px] text-slate-500 border border-slate-200 rounded font-medium py-0 px-2 mb-5 inline-block">Footwear</span>
-                                <a href="ecommerce-product-detail.html"
-                                    class="text-xl font-semibold text-slate-500 leading-3 block mb-2 truncate">New
-                                    Colorfull Shoes </a>
-                                <div class="mb-4">
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <i class="icofont-star text-yellow-400 inline-block"></i>
-                                    <span class="text-slate-800 font-semibold">4.8</span>
-                                </div>
-                                <h4 class="text-3xl font-medium mb-4"><sup
-                                        class="text-sm text-slate-500">$</sup>99 <del
-                                        class="text-base text-slate-400">$199</del></h4>
-                                <button type="button"
-                                    class="px-4 py-1 lg:px-4 bg-transparent  text-brand text-base  transition hover:bg-brand-500/10 hover:text-brand-500 border border-slate-200 border-dashed font-medium w-full">Buy
-                                    Now</button>
-                            </div>
-                        </div>
-                    </div> <!--end card-->
-                </div><!--end col-->
+                        </div> <!--end card-->
+                    </div><!--end col-->
+                @endforeach
+
             </div><!--end grid-->
         </div><!--end container-->
     </div><!--end main-->
@@ -653,7 +139,7 @@
 
             $('#btn-add-to-cart').html(
                 '<div class="border-t-transparent border-solid animate-spin  rounded-full border-primary-500 border-2 h-4 w-4 inline-block"></div>'
-                )
+            )
             $('#btn-add-to-cart').attr('disabled', true)
 
             $.ajax({

@@ -204,6 +204,10 @@
                             return `<span class="bg-green-500 text-white text-[11px] font-medium mr-1 px-2.5 py-0.5 rounded-full ">Complete</span>`
                         }
 
+                        if (data == "review") {
+                            return `<span class="bg-blue-500 text-white text-[11px] font-medium mr-1 px-2.5 py-0.5 rounded-full ">Review</span>`
+                        }
+
                         return data;
                     }
                 },
