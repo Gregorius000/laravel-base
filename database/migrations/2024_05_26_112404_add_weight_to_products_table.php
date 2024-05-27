@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('transactions', function (Blueprint $table) {
-            $table->string('receipt_number')->after('receipt')->nullable();
+        Schema::table('products', function (Blueprint $table) {
+            //
         });
     }
 
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('transactions', function (Blueprint $table) {
+        Schema::table('products', function (Blueprint $table) {
             //
         });
     }

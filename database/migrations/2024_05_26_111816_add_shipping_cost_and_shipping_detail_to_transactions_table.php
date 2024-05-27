@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->integer('weight')->after('price')->default(0);
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->integer('shipping_cost')->after('total_checkout');
+            $table->text('shipping_detail')->after('status');
         });
     }
 
@@ -21,8 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->dropColumn('shipping_cost');
+            $table->dropColumn('shipping_detail');
         });
     }
 };
